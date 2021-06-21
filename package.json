@@ -1,0 +1,19 @@
+{
+  "name": "nodestudy",
+  "version": "1.0.0",
+  "description": "node study",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m3rri/node_study.git"
+  },
+  "author": "hrkim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m3rri/node_study/issues"
+  },
+  "homepage": "https://github.com/m3rri/node_study#readme"
+}
