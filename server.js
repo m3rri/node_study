@@ -1,29 +1,17 @@
-const http = require('http');
-const url = require('url');
-const fs = require('fs');
+const exp = require('express');
+const path = require('path');
+const app = exp();
 
-http.createServer((req, res)=>{
-    const path = url.parse(req.url, true).pathname;
-    if(req.method==='GET'){
-        if(path==='/about'){
-            res.writeHead(200, {'Content-type': 'text/html'});
-            fs.readFile(__dirname+'/about.html', (err, data)=>{
-                if(err){
-                    return console.error(err);
-                }
-                res.end(data, 'utf-8');
-            });
-        }else if(path === '/'){
-            res.writeHead(200, {'Content-Type':'text/html'});
-            fs.readFile(__dirname+'/main.html', (err, data)=>{
-                if(err){
-                    console.error(err);
-                }
-                res.end(data, 'utf-8');
-            });
-        }else{
-            res.statusCode = 404;
-            res.end('not found url');
-        }
-    }
-}).listen(8080);
+app.use('/pseudo', exp.static(path.join(__dirname, 'html')));
+
+app.get('/', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'html', 'main.html'));
+});
+
+app.get('/about', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'html', 'about.html'));
+});
+
+app.listen(8080, ()=>{
+    console.log('Express App on port 8080');
+});

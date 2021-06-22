@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/m3rri/node_study/issues"
   },
-  "homepage": "https://github.com/m3rri/node_study#readme"
+  "homepage": "https://github.com/m3rri/node_study#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
